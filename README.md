@@ -1,1 +1,1 @@
-"# Rudimentary-Analysis-of-Linkedin-Job-Posting-for-Data-Analyst-Scientist" 
+No comment at the moment.
