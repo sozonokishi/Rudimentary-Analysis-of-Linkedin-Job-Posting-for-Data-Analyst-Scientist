@@ -58,7 +58,7 @@ app.layout = html.Div(
                             "The method also does not convert keyword such as 'fresh graduate' as 'at least 0 year of experience', inclusion of this information may skew the result by varying degrees."], className="note"))
                     ]),width={"size":"auto"} , className="container content center_alignment"),
             ],
-        align="start", className="auto_width_max_nowrap"),
+        align="start", className=""),
     
     dbc.Row(
         [
@@ -89,7 +89,7 @@ app.layout = html.Div(
                     html.Span(["Note:", html.Br(), "Singapore is not included due to the nature of the dataset making Singapore related data half of the dataset thus the comments will be related to Malaysia only."],className="note")
                     ]),width={"size":"auto"} , className="container content center_alignment"),
             ], 
-        align="start", className="auto_width_max_nowrap"),
+        align="start", className=""),
     
     dbc.Row(
         [
@@ -104,7 +104,7 @@ app.layout = html.Div(
             dbc.Col(dcc.Graph(id="employment_type_graph"),className="graph center_alignment"),
             dbc.Col(dcc.Graph(id="experience_percentage_to_employment_type_graph"),className="graph center_alignment")
             ], 
-        align="start", className="auto_width_max_nowrap")
+        align="start", className="")
     ]
 )
 
@@ -269,7 +269,7 @@ def update_experience_percentage_to_employment_type_bar(value):
 
     fig.update_layout(template=TEMPLATE)
     
-    fig.update_layout(title="Percentage of Experience Requirement to Employment Type",
+    fig.update_layout(title="Percentage of Experience Requirement <br>to Employment Type",
                       title_font = {"size":20})
     
     fig.update_layout(xaxis_title_text = "Employment Type",
