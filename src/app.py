@@ -23,6 +23,7 @@ file.close()
 
 app = dash.Dash(__name__, 
                 external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 #Layout
 app.layout = html.Div(
