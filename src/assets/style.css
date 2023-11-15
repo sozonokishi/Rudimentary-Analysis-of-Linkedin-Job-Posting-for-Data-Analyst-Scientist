@@ -13,6 +13,7 @@ body {
         box-shadow: 5px 5px #f7931e;
         width: 25%;
         height: 450px;
+        line-height: 10px;
         overflow: auto;
     }
 
@@ -33,6 +34,7 @@ body {
         box-shadow: 5px 5px #f7931e;
         width: 100%;
         height: auto;
+        line-height: 10px;
         overflow: auto;
     }
 
@@ -60,11 +62,13 @@ body {
     color: #ffffff;
     font-size: 22px;
     margin-top: 20px;
+    line-height: 30px;
 }
 
 .note {
-    color: #ffffff;
+    color: #d2d2d2;
     font-size: 16px;
+    line-height: 20px;
 }
 
 .topic_header {

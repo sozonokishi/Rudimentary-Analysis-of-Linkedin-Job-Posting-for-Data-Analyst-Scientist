@@ -53,9 +53,9 @@ app.layout = html.Div(
                            ", and ", 
                            html.B("mid-senior level job that is open for individuals with 0 year of experience.", style={"color":"#20c997"})]),
                     html.Br(),
-                    html.P(html.Span(["Note:", html.Br(),
-                            "The methods to aggregate the information is possibly not fully inclusive due to edge cases, improvement could be done through trained model. "+
-                            "The method also does not convert keyword such as 'fresh graduate' as 'at least 0 year of experience', inclusion of this information may skew the result by varying degrees."], className="note"))
+                    html.Span(["Note:", html.Br(),
+                            "The information aggregation methods may lack completeness due to potential edge cases, improvement could be achieved through a trained model. Additionally, "+
+                            "the method does not translate keywords like 'fresh graduate' to 'at least 0 years of experience,' and including such information may introduce varying degrees of bias to the results."], className="note")
                     ]),width={"size":"auto"} , className="container content center_alignment"),
             ],
         align="start", className=""),
@@ -83,7 +83,7 @@ app.layout = html.Div(
             dbc.Col(dcc.Graph(id="job_posting_map"),className="center_alignment graph"),
             dbc.Col(
                 html.Div([
-                    html.P(["More than half of the job posting from Malaysia comes from", html.B(" Kuala Lumpur ", style={"color":"#0dcaf0"}), "followed by ", html.B("Selangor, Penang", style={"color":"#0dcaf0"}), " and ", html.B("Johor. ", style={"color":"#0dcaf0"})]),
+                    html.P(["More than half of the job posting from Malaysia comes from", html.B(" Kuala Lumpur ", style={"color":"#e1ebc3"}), "followed by ", html.B("Selangor,", style={"color":"#c8eabd"}), html.B(" Penang and Johor. ", style={"color":"#8bd3b4"})]),
                     html.P(["Most other states have low level of job posting related to Data Scientist/Data Analyst possibly due to low demand, or/and low usage of Linkedin, no conclusion can be reached from the current dataset."]),
                     html.Br(),
                     html.Span(["Note:", html.Br(), "Singapore is not included due to the nature of the dataset making Singapore related data half of the dataset thus the comments will be related to Malaysia only."],className="note")
@@ -96,10 +96,9 @@ app.layout = html.Div(
             dbc.Col(
                 html.Div([
                     html.P(["Majority of the employment types are of", html.B(" Full-time ", style={"color":"#0dcaf0"}), "and", html.B(" Contractual ", style={"color":"#0dcaf0"}), ", with all the", html.B(" fresh graduate suitable (0 experience) ", style={"color":"#ffffe0"}), "job found in the", html.B(" Full-time ", style={"color":"#0dcaf0"}), "category."]),
-                    html.P(["One observation we can make here is that, majority of the works expect around", html.B(" 3 years of experiences ", style={"color":"#20c997"}), "minimum."]),
+                    html.P(["Majority of the works expect around", html.B(" 3+ years of experiences"), "."]),
                     html.Br(),
-                    html.Span(["Note:", html.Br(), "Due to some of the data not having experience stated in numerical form, we assume there is no such data, and thus are not shown in the 'Percentage of Experience Requirement to Employment Type' graph." +
-                               "an example to this would be the 'Internship' employment type. "],className="note")
+                    html.Span(["Note:", html.Br(), "Due to some of the data not having experience stated in numerical form, we assume there is no such data, and thus are not shown in the 'Percentage of Experience Requirement to Employment Type' graph (ie. Internship)."],className="note")
                     ]),width={"size":"auto"} , className="container content center_alignment"),
             dbc.Col(dcc.Graph(id="employment_type_graph"),className="graph center_alignment"),
             dbc.Col(dcc.Graph(id="experience_percentage_to_employment_type_graph"),className="graph center_alignment")
@@ -265,7 +264,7 @@ def update_experience_percentage_to_employment_type_bar(value):
     job_type_to_exp_df = job_type_to_exp_df.reset_index()
     
     
-    fig = px.bar(job_type_to_exp_df, x="Employment type", y="Percentage", color="Experience", color_continuous_scale="deep")
+    fig = px.bar(job_type_to_exp_df, x="Employment type", y="Percentage", color="Experience", color_continuous_scale="deep_r")
 
     fig.update_layout(template=TEMPLATE)
     
@@ -299,7 +298,7 @@ def update_job_posting_map(value):
         data_frame=df_location_count,
         featureidkey="properties.shapeName",
         color=np.log10(df_location_count["Count"]),
-        color_continuous_scale="deep",
+        color_continuous_scale="deep_r",
         color_continuous_midpoint=1,
         geojson=geo_json,
         locations="Location",
